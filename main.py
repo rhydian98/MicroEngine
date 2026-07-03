@@ -1,5 +1,6 @@
 import pygame
 from player import Player
+from pygame import Clock
 def draw_rectangle(screen,height, width, position, color):
     pygame.draw.rect(screen, color, (position[0], position[1], width, height))
 
@@ -15,9 +16,11 @@ def create_window(width, height):
 
 def game_loop(screen, width, height):
     # Main loop
-    player = Player(100, 100, 100, 100, (255, 0, 0))
+    
+    player = Player(100, 100, 100, 100, (255, 0, 0),250)
     running = True
-    position = [100, 100]
+    clock = Clock()
+    dt = clock.tick(60)/1000
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -26,7 +29,7 @@ def game_loop(screen, width, height):
         
 
         keys = pygame.key.get_pressed()
-        player.update(keys)
+        player.update(keys,dt)
         player.contain_within_bounds(width, height)
         
 
@@ -37,6 +40,7 @@ def game_loop(screen, width, height):
         player.draw(screen)
         # Update the display
         pygame.display.flip()
+        clock.tick(60)
 
 def main():
     # Initialize Pygame
