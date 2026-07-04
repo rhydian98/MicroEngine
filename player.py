@@ -22,18 +22,52 @@ class Player(Entity):
         if self.y + self.height > height:
             self.y = height - self.height
 
-    def update(self, keys,dt):
-        speed = self.speed*dt
-        if keys[pygame.K_w]:
-            self.y -= speed
-        if keys[pygame.K_a]:
-            self.x -= speed
-        if keys[pygame.K_s]:
-            self.y += speed
+    def move_x(self,keys, adjusted_speed, solids):
+        old_x = self.x
+        
         if keys[pygame.K_d]:
-            self.x += speed
+            self.x += adjusted_speed
+        if keys[pygame.K_a]:
+            self.x -= adjusted_speed
+
+        for solid in solids:
+            if self.collides_with(solid):
+                self.handle_x_collision(old_x)
+                break
+    def move_y(self, keys, adjusted_speed, solids):
+        old_y = self.y
+        
+        if keys[pygame.K_s]:
+            self.y += adjusted_speed
+        if keys[pygame.K_w]:
+            self.y -= adjusted_speed
+        for solid in solids:
+            if self.collides_with(solid):
+                self.handle_y_collision(old_y)
+                break
+        
+
+    def update(self, keys,dt, solids):
+        speed = self.speed*dt
+        
+        self.move_x(keys, speed, solids)
+        self.move_y(keys, speed, solids)
+        
+
 
         self.get_sides()
+    
+    def handle_x_collision(self, old_x):
+        self.x = old_x
+
+    def handle_y_collision(self, old_y):
+        self.y = old_y
+
+    def handle_collision(self, entity):
+
+        if self.collides_with(entity):
+            self.x = self.previous_x
+            self.y = self.previous_y
         
         
     

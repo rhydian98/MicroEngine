@@ -19,6 +19,9 @@ def game_loop(screen, width, height):
     # Main loop
     wall = Entity(550, 300, 100, 250, (0, 255, 0))
     player = Player(100, 100, 100, 100, (255, 0, 0),250)
+
+    entities = [player, wall]
+
     running = True
     clock = Clock()
     dt = clock.tick(60)/1000
@@ -27,26 +30,19 @@ def game_loop(screen, width, height):
             if event.type == pygame.QUIT:
                 running = False
 
-        
-
         keys = pygame.key.get_pressed()
-        old_x = player.x
-        old_y = player.y
-
-        player.update(keys,dt)
+        # update player and collision detection
+        player.update(keys,dt, [wall])
         player.contain_within_bounds(width, height)
-        if player.collides_with(wall):
-            player.x = old_x
-            player.y = old_y
-        
         
 
-
+        
+        
         # Fill the screen with a color (RGB)
         screen.fill((0, 128, 255))
-        #draw rectangle on screen
-        player.draw(screen)
-        wall.draw(screen)
+        #draw entities
+        for entity in entities:
+            entity.draw(screen)
         # Update the display
         pygame.display.flip()
         clock.tick(60)
