@@ -1,6 +1,6 @@
 import pygame
-
-class Player():
+from entity import Entity
+class Player(Entity):
     def __init__(self, width, height, x, y, color, speed):
         self.width = width
         self.height = height
@@ -8,6 +8,9 @@ class Player():
         self.y = y
         self.color = color
         self.speed = speed
+
+
+        self.get_sides()
 
     def contain_within_bounds(self, width, height):
         if self.x < 0:
@@ -29,8 +32,9 @@ class Player():
             self.y += speed
         if keys[pygame.K_d]:
             self.x += speed
+
+        self.get_sides()
         
         
     
-    def draw(self,screen):
-        pygame.draw.rect(screen,  self.color, (self.x, self.y, self.width, self.height) )
+    
