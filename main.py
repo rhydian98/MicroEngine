@@ -18,9 +18,11 @@ def create_window(width, height):
 def game_loop(screen, width, height):
     # Main loop
     wall = Entity(550, 300, 100, 250, (0, 255, 0))
+    wall2 = Entity(300, 100, 200, 400, (0, 255, 0))
+    wall3 = Entity(60, 200, 200, 60, (0, 255, 0))
     player = Player(100, 100, 100, 100, (255, 0, 0),250)
 
-    entities = [player, wall]
+    entities = [player, wall, wall2, wall3]
 
     running = True
     clock = Clock()
@@ -32,11 +34,8 @@ def game_loop(screen, width, height):
 
         keys = pygame.key.get_pressed()
         # update player and collision detection
-        player.update(keys,dt, [wall])
+        player.update(keys,dt, [wall, wall2, wall3])
         player.contain_within_bounds(width, height)
-        
-
-        
         
         # Fill the screen with a color (RGB)
         screen.fill((0, 128, 255))

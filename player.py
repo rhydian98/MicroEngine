@@ -10,8 +10,7 @@ class Player(Entity):
         self.speed = speed
 
 
-        self.get_sides()
-
+        
     def contain_within_bounds(self, width, height):
         if self.x < 0:
             self.x = 0
@@ -55,7 +54,7 @@ class Player(Entity):
         
 
 
-        self.get_sides()
+        
     
     def handle_x_collision(self, old_x):
         self.x = old_x

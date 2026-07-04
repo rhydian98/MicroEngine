@@ -8,14 +8,21 @@ class Entity:
         self.height = height
         self.color = color
 
-        self.get_sides()
+        
 
+    @property
+    def left(self):
+        return self.x
+    @property
+    def right(self):
+        return self.x + self.width
+    @property
+    def top(self):
+        return self.y
+    @property
+    def bottom(self):
+        return self.y + self.height
 
-    def get_sides(self):
-        self.left = self.x
-        self.top = self.y
-        self.right = self.x + self.width
-        self.bottom = self.y + self.height
 
 
 
