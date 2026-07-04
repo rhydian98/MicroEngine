@@ -1,7 +1,7 @@
 import pygame
 
 class Entity:
-    def __init__(self, x, y, width, height, color):
+    def __init__(self, width, height, x, y, color):
         self.x = x
         self.y = y
         self.width = width
