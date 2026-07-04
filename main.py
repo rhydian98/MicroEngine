@@ -30,10 +30,15 @@ def game_loop(screen, width, height):
         
 
         keys = pygame.key.get_pressed()
+        old_x = player.x
+        old_y = player.y
+
         player.update(keys,dt)
         player.contain_within_bounds(width, height)
         if player.collides_with(wall):
-            player.color = (127,127, 0)
+            player.x = old_x
+            player.y = old_y
+        
         
 
 
