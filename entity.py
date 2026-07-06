@@ -1,4 +1,5 @@
 import pygame
+from camera import Camera
 
 class Entity:
     def __init__(self, width, height, x, y, color):
@@ -22,12 +23,19 @@ class Entity:
     @property
     def bottom(self):
         return self.y + self.height
+    @property
+    def center_x(self):
+        return self.x + (self.width/2)
+    @property
+    def center_y(self):
+        return self.y + (self.height/2)
 
 
 
-
-    def draw(self,screen):
-        pygame.draw.rect(screen,  self.color, (self.x, self.y, self.width, self.height) )
+    def draw(self,screen,camera):
+        screen_x = self.x - camera.x
+        screen_y = self.y - camera.y
+        pygame.draw.rect(screen,  self.color, (screen_x, screen_y, self.width, self.height) )
 
 
     def collides_with(self, entity):
