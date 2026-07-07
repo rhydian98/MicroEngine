@@ -7,10 +7,10 @@
 
     "player_start":{
 
-        "x" : 100,
-        "y" : 100,
-        "width" : 50,
-        "height" : 50,
+        "column" : 3,
+        "row" : 3,
+        "width" : 1,
+        "height" : 1,
         "color" : [255, 0, 0],
         "speed" : 250
 
@@ -18,17 +18,17 @@
     },
     "walls" : [
         {
-            "x" : 0,
-            "y" : 0,
-            "width" : 1600,
-            "height": 40,
+            "column" : 0,
+            "row" : 0,
+            "width" : 40,
+            "height": 1,
             "color" : [0,255,0]
         },
         {
-            "x" : 0,
-            "y" : 1160,
-            "width" : 1600,
-            "height": 40,
+            "column" : 0,
+            "row" : 29,
+            "width" : 40,
+            "height": 1,
             "color" : [0,255,0]
         }
     ]

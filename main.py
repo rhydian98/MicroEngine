@@ -10,9 +10,6 @@ def main():
     game = Game(800, 600)
 
     game.game_loop()
-    
-
-    
 
     # Quit Pygame
     pygame.quit()

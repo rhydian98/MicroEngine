@@ -1,16 +1,26 @@
 import pygame
 
 from engine.entity import Entity
-
+from engine.constants import TILE_HEIGHT, TILE_WIDTH
 class Player(Entity):
+
     def __init__(self, width, height, x, y, color, speed):
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        
+        self.width = width * TILE_WIDTH
+        self.height = height * TILE_HEIGHT
+        self.x = x * TILE_WIDTH
+        self.y = y * TILE_HEIGHT
         self.color = color
         self.speed = speed
+    
 
+    @property
+    def column(self):
+        return self.x // TILE_WIDTH
+    
+    @property
+    def row(self):
+        return self.y // TILE_HEIGHT
 
         
     def contain_within_bounds(self, world):

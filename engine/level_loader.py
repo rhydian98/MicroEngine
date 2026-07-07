@@ -14,8 +14,8 @@ def load_level(filename):
         player = Player(
             player_data["width"],
             player_data["height"],
-            player_data["x"],
-            player_data["y"],
+            player_data["column"],
+            player_data["row"],
             tuple(player_data["color"]),
             player_data["speed"]
         )
@@ -23,10 +23,10 @@ def load_level(filename):
         walls = []
         for wall_data in data["walls"]:
             wall = Entity(
-                wall_data["width"],
-                wall_data["height"],
-                wall_data["x"],
-                wall_data["y"],
+                wall_data["tile_width"],
+                wall_data["tile_height"],
+                wall_data["column"],
+                wall_data["row"],
                 tuple(wall_data["color"])
 
             )

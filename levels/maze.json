@@ -1,0 +1,27 @@
+{
+  "world": { "width": 1200, "height": 800 },
+
+  "player_start": {
+    "column": 2,
+    "row": 2,
+    "width": 1,
+    "height": 1,
+    "speed": 300,
+    "color": [255, 0, 0]
+  },
+
+  "walls": [
+    { "column": 0, "row": 0, "tile_width": 30, "tile_height": 1, "color": [0, 255, 0] },
+    { "column": 0, "row": 19, "tile_width": 30, "tile_height": 1, "color": [0, 255, 0] },
+    { "column": 0, "row": 0, "tile_width": 1, "tile_height": 20, "color": [0, 255, 0] },
+    { "column": 29, "row": 0, "tile_width": 1, "tile_height": 20, "color": [0, 255, 0] },
+
+    { "column": 6, "row": 1, "tile_width": 1, "tile_height": 14, "color": [0, 255, 0] },
+    { "column": 6, "row": 14, "tile_width": 12, "tile_height": 1, "color": [0, 255, 0] },
+    { "column": 18, "row": 5, "tile_width": 1, "tile_height": 10, "color": [0, 255, 0] },
+    { "column": 10, "row": 5, "tile_width": 9, "tile_height": 1, "color": [0, 255, 0] },
+    { "column": 10, "row": 5, "tile_width": 1, "tile_height": 6, "color": [0, 255, 0] },
+    { "column": 10, "row": 11, "tile_width": 14, "tile_height": 1, "color": [0, 255, 0] },
+    { "column": 24, "row": 3, "tile_width": 1, "tile_height": 9, "color": [0, 255, 0] }
+  ]
+}
