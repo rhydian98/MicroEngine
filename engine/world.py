@@ -1,6 +1,6 @@
 class World:
 
-    def __init__(self, width, height, name):
+    def __init__(self, width, height):
         self.width = width
         self.height = height
-        self.name = name
+       # self.name = name

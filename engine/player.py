@@ -1,6 +1,6 @@
 import pygame
-from world import World
-from entity import Entity
+
+from engine.entity import Entity
 
 class Player(Entity):
     def __init__(self, width, height, x, y, color, speed):

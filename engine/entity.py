@@ -1,5 +1,5 @@
 import pygame
-from camera import Camera
+from engine.camera import Camera
 
 class Entity:
     def __init__(self, width, height, x, y, color):
