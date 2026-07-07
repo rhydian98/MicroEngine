@@ -1,5 +1,7 @@
 import pygame
+from world import World
 from entity import Entity
+
 class Player(Entity):
     def __init__(self, width, height, x, y, color, speed):
         self.width = width
@@ -11,15 +13,15 @@ class Player(Entity):
 
 
         
-    def contain_within_bounds(self, width, height):
+    def contain_within_bounds(self, world):
         if self.x < 0:
             self.x = 0
-        if self.x + self.width > width:
-            self.x = width - self.width
+        if self.x + self.width > world.width:
+            self.x = world.width - self.width
         if self.y < 0:
             self.y = 0
-        if self.y + self.height > height:
-            self.y = height - self.height
+        if self.y + self.height > world.height:
+            self.y = world.height - self.height
 
     def move_x(self,keys, adjusted_speed, solids):
         old_x = self.x
