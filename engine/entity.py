@@ -9,6 +9,7 @@ class Entity:
         self.width = tile_width * TILE_WIDTH
         self.height = tile_height * TILE_HEIGHT
         self.color = color
+        self.image = None
 
     
 
@@ -36,7 +37,11 @@ class Entity:
     def draw(self,screen,camera):
         screen_x = self.x - camera.x
         screen_y = self.y - camera.y
-        pygame.draw.rect(screen,  self.color, (screen_x, screen_y, self.width, self.height) )
+
+        if self.image:
+            screen.blit(self.image, (screen_x, screen_y))
+        else:
+            pygame.draw.rect(screen,  self.color, (screen_x, screen_y, self.width, self.height) )
 
 
     def collides_with(self, entity):

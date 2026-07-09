@@ -1,5 +1,5 @@
 import pygame
-
+import os
 from engine.entity import Entity
 from engine.constants import TILE_HEIGHT, TILE_WIDTH
 class Player(Entity):
@@ -12,6 +12,7 @@ class Player(Entity):
         self.y = y * TILE_HEIGHT
         self.color = color
         self.speed = speed
+        self.load_sprite()
     
 
     @property
@@ -81,5 +82,14 @@ class Player(Entity):
             self.y = self.previous_y
         
         
+
+    def load_sprite(self):
+        print(os.getcwd())
+        self.sprite_sheet = pygame.image.load("assets/NPC Merchant-idle.png").convert_alpha()
+
+        frame = pygame.Rect(0, 0, 110, 110)
+        self.image = self.sprite_sheet.subsurface(frame)
+
+        self.image = pygame.transform.scale(self.image, (self.width, self.height))
     
     
