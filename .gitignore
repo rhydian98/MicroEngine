@@ -10,3 +10,6 @@ venv/
 
 #windows
 Thumbs.db
+
+#vscode
+.vscode/
