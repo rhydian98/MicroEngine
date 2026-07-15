@@ -34,7 +34,7 @@ class Game:
             keys = pygame.key.get_pressed()
             # update player and collision detection
             player.get_input(keys)
-            player.update_motion(dt, solids)
+            player.update(keys, solids, dt, world)
             player.contain_within_bounds(world)
             camera.follow(player)
             camera.camera_bounds(world)

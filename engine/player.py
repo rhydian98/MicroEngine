@@ -11,6 +11,7 @@ class Player(DynamicEntity):
         
         self.load_sprite()
         self.move_acceleration = move_acceleration
+        self.braking_force = self.move_acceleration * 2
 
     @property
     def column(self):
@@ -20,7 +21,18 @@ class Player(DynamicEntity):
     def row(self):
         return self.y // TILE_HEIGHT
 
+    def update(self, keys, solids, dt, world):
+        self.get_input(keys)
         
+        if self.acceleration_x == 0.0:
+            self.brake_x(dt)
+        if self.acceleration_y == 0.0:
+            self.brake_y(dt)
+
+
+        super().update_motion(dt, solids)
+        self.contain_within_bounds(world)
+
     
 
     def get_input(self, keys):
@@ -37,6 +49,9 @@ class Player(DynamicEntity):
             self.acceleration_y = self.move_acceleration
         elif keys [pygame.K_w]:
             self.acceleration_y = -self.move_acceleration
+        
+
+
         
         
         

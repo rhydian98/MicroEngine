@@ -45,6 +45,19 @@ class DynamicEntity(Entity):
             if self.collides_with(solid):
                 self.handle_y_collision(old_y)
                 break
+    
+    def brake_x(self, dt):
+        if self.velocity_x > 0:
+            self.velocity_x = max(0, self.velocity_x - self.braking_force * dt)
+        elif self.velocity_x < 0:
+            self.velocity_x = min(0, self.velocity_x + self.braking_force * dt)
+
+    def brake_y(self, dt):
+        if self.velocity_y > 0:
+            self.velocity_y= max(0, self.velocity_y - self.braking_force * dt)
+        elif self.velocity_y < 0:
+            self.velocity_y = min(0, self.velocity_y + self.braking_force * dt)
+
 
     
     def contain_within_bounds(self, world):
