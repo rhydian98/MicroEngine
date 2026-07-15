@@ -1,0 +1,504 @@
+{
+    "world": {
+        "width": 2400,
+        "height": 1800
+    },
+    "player_start": {
+        "column": 1,
+        "row": 1,
+        "width": 1,
+        "height": 1,
+        "speed": 300,
+        "color": [
+            255,
+            0,
+            0
+        ]
+    },
+    "walls": [
+        {
+            "column": 4,
+            "row": 12,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 7,
+            "row": 14,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 4,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 10,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 8,
+            "row": 9,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 10,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 9,
+            "row": 1,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 11,
+            "row": 6,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 8,
+            "row": 6,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 12,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 9,
+            "row": 14,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 5,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 3,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 5,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 5,
+            "row": 10,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 4,
+            "row": 13,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 11,
+            "row": 1,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 8,
+            "row": 1,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 11,
+            "row": 14,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 8,
+            "row": 14,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 9,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 2,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 10,
+            "row": 1,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 13,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 6,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 6,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 4,
+            "row": 14,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 4,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 10,
+            "row": 14,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 1,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 1,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 14,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 3,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 14,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 7,
+            "row": 9,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 4,
+            "row": 11,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 7,
+            "row": 6,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 5,
+            "row": 14,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 9,
+            "row": 9,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 4,
+            "row": 10,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 9,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 12,
+            "row": 11,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 7,
+            "row": 1,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 2,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        }
+    ]
+}

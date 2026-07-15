@@ -1,19 +1,16 @@
 import pygame
 import os
-from engine.entity import Entity
+from engine.dynamic_entity import DynamicEntity
 from engine.constants import TILE_HEIGHT, TILE_WIDTH
-class Player(Entity):
+class Player(DynamicEntity):
 
-    def __init__(self, width, height, x, y, color, speed):
-        
-        self.width = width * TILE_WIDTH
-        self.height = height * TILE_HEIGHT
-        self.x = x * TILE_WIDTH
-        self.y = y * TILE_HEIGHT
-        self.color = color
-        self.speed = speed
-        self.load_sprite()
+    def __init__(self, width, height, x, y, color, move_acceleration):
     
+        super().__init__(width, height, x, y, color)
+
+        
+        self.load_sprite()
+        self.move_acceleration = move_acceleration
 
     @property
     def column(self):
@@ -24,62 +21,23 @@ class Player(Entity):
         return self.y // TILE_HEIGHT
 
         
-    def contain_within_bounds(self, world):
-        if self.x < 0:
-            self.x = 0
-        if self.x + self.width > world.width:
-            self.x = world.width - self.width
-        if self.y < 0:
-            self.y = 0
-        if self.y + self.height > world.height:
-            self.y = world.height - self.height
-
-    def move_x(self,keys, adjusted_speed, solids):
-        old_x = self.x
-        
-        if keys[pygame.K_d]:
-            self.x += adjusted_speed
-        if keys[pygame.K_a]:
-            self.x -= adjusted_speed
-
-        for solid in solids:
-            if self.collides_with(solid):
-                self.handle_x_collision(old_x)
-                break
-    def move_y(self, keys, adjusted_speed, solids):
-        old_y = self.y
-        
-        if keys[pygame.K_s]:
-            self.y += adjusted_speed
-        if keys[pygame.K_w]:
-            self.y -= adjusted_speed
-        for solid in solids:
-            if self.collides_with(solid):
-                self.handle_y_collision(old_y)
-                break
-        
-
-    def update(self, keys,dt, solids):
-        speed = self.speed*dt
-        
-        self.move_x(keys, speed, solids)
-        self.move_y(keys, speed, solids)
-        
-
-
-        
     
-    def handle_x_collision(self, old_x):
-        self.x = old_x
 
-    def handle_y_collision(self, old_y):
-        self.y = old_y
+    def get_input(self, keys):
 
-    def handle_collision(self, entity):
+        self.acceleration_x = 0.0
+        self.acceleration_y = 0.0
 
-        if self.collides_with(entity):
-            self.x = self.previous_x
-            self.y = self.previous_y
+        if keys [pygame.K_a]:
+            self.acceleration_x = -self.move_acceleration
+        elif keys [pygame.K_d]:
+            self.acceleration_x = self.move_acceleration
+
+        if keys [pygame.K_s]:
+            self.acceleration_y = self.move_acceleration
+        elif keys [pygame.K_w]:
+            self.acceleration_y = -self.move_acceleration
+        
         
         
 
