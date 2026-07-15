@@ -1,0 +1,86 @@
+{
+    "world": {
+        "width": 2400,
+        "height": 1800
+    },
+    "player_start": {
+        "column": 1,
+        "row": 1,
+        "width": 1,
+        "height": 1,
+        "speed": 300,
+        "color": [
+            255,
+            0,
+            0
+        ]
+    },
+    "walls": [
+        {
+            "column": 8,
+            "row": 3,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 4,
+            "row": 3,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 7,
+            "row": 3,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 3,
+            "row": 3,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 6,
+            "row": 3,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        },
+        {
+            "column": 5,
+            "row": 3,
+            "tile_width": 1,
+            "tile_height": 1,
+            "color": [
+                0,
+                255,
+                0
+            ]
+        }
+    ]
+}
