@@ -18,7 +18,7 @@ class Game:
     def game_loop(self):
         # Main loop
         camera = Camera(0, 0, 800, 600)
-        world, player, solids = load_level("levels/nothing.json")
+        world, player, solids = load_level("levels/maze.json")
         entities  = [player] + solids
         
         running = True

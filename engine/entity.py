@@ -47,6 +47,6 @@ class Entity:
     def collides_with(self, entity):
         #print("Checking collision")
         if self.bottom > entity.top and self.left < entity.right and self.top < entity.bottom and self.right > entity.left:
-            #print("Colliding")
+            print("Colliding")
             return True
         return False
