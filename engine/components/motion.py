@@ -12,10 +12,15 @@ class Motion(Component):
         self.max_velocity = max_velocity
         self.braking_force = braking_force
 
-    def update(self, entity, dt):
+    def update(self, dt):
         self.accelerate(dt)
         self.limit_velocity()
-        self.move(entity, dt)
+        
+
+    def get_displacement(self, dt):
+        dx = self.velocity_x * dt
+        dy = self.velocity_y * dt
+        return dx, dy
 
     def accelerate(self, dt):
         self.velocity_x += self.acceleration_x * dt
@@ -45,12 +50,4 @@ class Motion(Component):
         elif self.velocity_y < 0:
             self.velocity_y = min(0, self.velocity_y + self.braking_force * dt)
 
-    def contain_within_bounds(self, entity, world):
-        if entity.x < 0:
-            entity.x = 0
-        if entity.x + entity.width > world.width:
-            entity.x = world.width - entity.width
-        if entity.y < 0:
-            entity.y = 0
-        if entity.y + entity.height > world.height:
-            entity.y = world.height - entity.height
+    

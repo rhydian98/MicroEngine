@@ -3,6 +3,7 @@ import os
 from engine.entity import Entity
 from engine.constants import TILE_HEIGHT, TILE_WIDTH
 from engine.components.motion import Motion
+from engine.components.collider import Collider
 class Player(Entity):
 
     def __init__(self, width, height, x, y, color, move_acceleration):
@@ -14,6 +15,8 @@ class Player(Entity):
             max_velocity=300,
             braking_force=4000
         )
+
+        self.collider = Collider()
         
         self.load_sprite()
         self.move_acceleration = 2000
@@ -29,8 +32,11 @@ class Player(Entity):
 
     def update(self, keys, solids, dt, world):
         self.get_input(keys)
-        self.motion.update(self, dt)
+        self.motion.update(dt)
         
+        dx, dy = self.motion.get_displacement(dt)
+
+        self.collider.move(self, self.motion, dx, dy, solids, world)
         
         if self.motion.acceleration_x == 0.0:
             self.motion.brake_x(dt)
@@ -39,7 +45,7 @@ class Player(Entity):
 
 
         
-        self.motion.contain_within_bounds(self,world)
+        self.collider.contain_within_bounds(self,self.motion,world)
 
     
 
