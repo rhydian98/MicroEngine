@@ -1,5 +1,6 @@
 import pygame
 from engine.camera import Camera
+from engine.components import motion
 from engine.constants import TILE_HEIGHT, TILE_WIDTH
 
 class Entity:
@@ -10,6 +11,8 @@ class Entity:
         self.height = tile_height * TILE_HEIGHT
         self.color = color
         self.image = None
+
+        self.motion = None
 
     
 

@@ -59,15 +59,7 @@ class DynamicEntity(Entity):
 
 
     
-    def contain_within_bounds(self, world):
-        if self.x < 0:
-            self.x = 0
-        if self.x + self.width > world.width:
-            self.x = world.width - self.width
-        if self.y < 0:
-            self.y = 0
-        if self.y + self.height > world.height:
-            self.y = world.height - self.height
+    
 
 
     def accelerate_x(self, dt):

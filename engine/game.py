@@ -35,7 +35,7 @@ class Game:
             # update player and collision detection
             player.get_input(keys)
             player.update(keys, solids, dt, world)
-            player.contain_within_bounds(world)
+            
             camera.follow(player)
             camera.camera_bounds(world)
             # Fill the screen with a color (RGB)
