@@ -1,11 +1,11 @@
 from engine.camera import Camera
 from engine.world import World
 import engine.constants
-from engine.entity import Entity
+from engine.dynamic_entity import DynamicEntity
 from engine.game import Game
 import pygame
 
-class PhysicsBody(Entity):
+class PhysicsBody(DynamicEntity):
 
     def __init__(self, tile_width, tile_height, x, y, color, mass=1.0, bounciness = 0.8):
         super().__init__(tile_width, tile_height, x, y, color)
@@ -20,20 +20,14 @@ class PhysicsBody(Entity):
         self.bounciness = bounciness
 
 
-    def update(self,dt ):
-        self.velocity_x += self.acceleration_x * dt
-        self.velocity_y += self.acceleration_y * dt
+    def update(self,dt, solids ):
+        super().update_motion(dt, solids)
 
-        self.x += self.velocity_x * dt
-        self.y += self.velocity_y * dt
+        self.resolve_bounce(self.mass, self.velocity_x, self.velocity.y)
 
+
+    def resolve_bounce(self, mass, velocity_x, velocity_y):
         
-
-
-    
-
-
-
 
 
 def game_loop(game, world):

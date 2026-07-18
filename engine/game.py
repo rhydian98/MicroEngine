@@ -18,7 +18,7 @@ class Game:
     def game_loop(self):
         # Main loop
         camera = Camera(0, 0, 800, 600)
-        world, player, solids = load_level("levels/nothing.json")
+        world, player, solids = load_level("levels/maze.json")
         entities  = [player] + solids
         
         running = True
@@ -35,7 +35,7 @@ class Game:
             # update player and collision detection
             player.get_input(keys)
             player.update(keys, solids, dt, world)
-            player.contain_within_bounds(world)
+            
             camera.follow(player)
             camera.camera_bounds(world)
             # Fill the screen with a color (RGB)

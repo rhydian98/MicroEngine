@@ -11,15 +11,12 @@ class DynamicEntity(Entity):
         self.acceleration_x = 0.0
         self.acceleration_y = 0.0
 
-        self.bouncieness = 0.8
-        self.bouncieness = 0.8
 
         self.max_velocity = max_velocity
 
     def update_motion(self, dt, solids):
 
-        old_x = self.x
-        old_y = self.y
+        
 
 
         self.accelerate_x(dt)
@@ -27,19 +24,21 @@ class DynamicEntity(Entity):
 
         self.limit_velocity()
 
-        self.move_x(dt, old_x, solids)
-        self.move_y(dt, old_y, solids)
+        self.move_x(dt, solids)
+        self.move_y(dt, solids)
 
-    def move_x(self, dt, old_x, solids):
+    def move_x(self, dt,  solids):
+        old_x = self.x
         self.x += self.velocity_x * dt
 
         for solid in solids:
             if self.collides_with(solid):
-                self.handle_y_collision(old_x)
+                self.handle_x_collision(old_x)
                 break
 
-    def move_y(self, dt, old_y, solids):
-        self.y += self.velocity_y* dt
+    def move_y(self, dt, solids):
+        old_y = self.y
+        self.y += self.velocity_y * dt
 
         for solid in solids:
             if self.collides_with(solid):
@@ -60,15 +59,7 @@ class DynamicEntity(Entity):
 
 
     
-    def contain_within_bounds(self, world):
-        if self.x < 0:
-            self.x = 0
-        if self.x + self.width > world.width:
-            self.x = world.width - self.width
-        if self.y < 0:
-            self.y = 0
-        if self.y + self.height > world.height:
-            self.y = world.height - self.height
+    
 
 
     def accelerate_x(self, dt):
@@ -88,7 +79,9 @@ class DynamicEntity(Entity):
 
 
     def handle_x_collision(self, old_x):
+        self.velocity_x = 0
         self.x = old_x
 
     def handle_y_collision(self, old_y):
+        self.velocity_y = 0
         self.y = old_y

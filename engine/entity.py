@@ -1,5 +1,6 @@
 import pygame
 from engine.camera import Camera
+from engine.components import motion
 from engine.constants import TILE_HEIGHT, TILE_WIDTH
 
 class Entity:
@@ -10,6 +11,8 @@ class Entity:
         self.height = tile_height * TILE_HEIGHT
         self.color = color
         self.image = None
+
+        self.motion = None
 
     
 
@@ -47,6 +50,6 @@ class Entity:
     def collides_with(self, entity):
         #print("Checking collision")
         if self.bottom > entity.top and self.left < entity.right and self.top < entity.bottom and self.right > entity.left:
-            #print("Colliding")
+            print("Colliding")
             return True
         return False

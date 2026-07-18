@@ -1,17 +1,26 @@
 import pygame
 import os
-from engine.dynamic_entity import DynamicEntity
+from engine.entity import Entity
 from engine.constants import TILE_HEIGHT, TILE_WIDTH
-class Player(DynamicEntity):
+from engine.components.motion import Motion
+from engine.components.collider import Collider
+class Player(Entity):
 
     def __init__(self, width, height, x, y, color, move_acceleration):
-    
+        
         super().__init__(width, height, x, y, color)
+        
 
+        self.motion = Motion(
+            max_velocity=300,
+            braking_force=4000
+        )
+
+        self.collider = Collider()
         
         self.load_sprite()
-        self.move_acceleration = move_acceleration
-        self.braking_force = self.move_acceleration * 2
+        self.move_acceleration = 2000
+        
 
     @property
     def column(self):
@@ -23,32 +32,37 @@ class Player(DynamicEntity):
 
     def update(self, keys, solids, dt, world):
         self.get_input(keys)
+        self.motion.update(dt)
         
-        if self.acceleration_x == 0.0:
-            self.brake_x(dt)
-        if self.acceleration_y == 0.0:
-            self.brake_y(dt)
+        dx, dy = self.motion.get_displacement(dt)
+
+        self.collider.move(self, self.motion, dx, dy, solids, world)
+        
+        if self.motion.acceleration_x == 0.0:
+            self.motion.brake_x(dt)
+        if self.motion.acceleration_y == 0.0:
+            self.motion.brake_y(dt)
 
 
-        super().update_motion(dt, solids)
-        self.contain_within_bounds(world)
+        
+        self.collider.contain_within_bounds(self,self.motion,world)
 
     
 
     def get_input(self, keys):
 
-        self.acceleration_x = 0.0
-        self.acceleration_y = 0.0
+        self.motion.acceleration_x = 0.0
+        self.motion.acceleration_y = 0.0
 
         if keys [pygame.K_a]:
-            self.acceleration_x = -self.move_acceleration
+            self.motion.acceleration_x = -self.move_acceleration
         elif keys [pygame.K_d]:
-            self.acceleration_x = self.move_acceleration
+            self.motion.acceleration_x = self.move_acceleration
 
         if keys [pygame.K_s]:
-            self.acceleration_y = self.move_acceleration
+            self.motion.acceleration_y = self.move_acceleration
         elif keys [pygame.K_w]:
-            self.acceleration_y = -self.move_acceleration
+            self.motion.acceleration_y = -self.move_acceleration
         
 
 
