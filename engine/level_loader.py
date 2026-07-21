@@ -9,7 +9,7 @@ def load_level(filename):
         world_data = data["world"]
         world = World(world_data["width"], world_data["height"])
 
-
+        
         player_data = data["player_start"]
         player = Player(
             player_data["width"],

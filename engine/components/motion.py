@@ -50,4 +50,8 @@ class Motion(Component):
         elif self.velocity_y < 0:
             self.velocity_y = min(0, self.velocity_y + self.braking_force * dt)
 
+    def reset_acceleration(self):
+        self.acceleration_x = 0
+        self.acceleration_y = 0
+
     

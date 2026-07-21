@@ -15,8 +15,8 @@ class Collider:
         for solid in solids:
             if entity.collides_with(solid):
                 entity.x = old_x
-                motion.velocity_x = 0
-                break
+                #motion.velocity_x = 0
+                return True
 
     def move_y(self, entity, motion, dy, solids):
         old_y = entity.y
@@ -25,8 +25,8 @@ class Collider:
         for solid in solids:
             if entity.collides_with(solid):
                 entity.y = old_y
-                motion.velocity_y = 0
-                break
+                #motion.velocity_y = 0
+                return True 
 
     
     def contain_within_bounds(self, entity, motion, world):

@@ -11,14 +11,14 @@ class Game:
 
         return screen
         
-    def __init__(self, width, height):
+    def __init__(self, width, height, filename):
         self.screen = self.create_window(width, height)
-    
+        self.filename = filename
     
     def game_loop(self):
         # Main loop
         camera = Camera(0, 0, 800, 600)
-        world, player, solids = load_level("levels/maze.json")
+        world, player, solids = load_level(self.filename)
         entities  = [player] + solids
         
         running = True
